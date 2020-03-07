@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cerulean/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-LV/SIoc08vbV9CCeAwiz7RJZMI5YntsH8rGov0Y2nysmepqMWVvJqds6y0RaxIXT"
+			crossorigin="anonymous">
+		<title>eRegistrar - Students</title>
+	</head>
+	<body>
+
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="/">eRegistrar</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarColor02" aria-controls="navbarColor02"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+	
+				<div class="collapse navbar-collapse" id="navbarColor02">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><a class="nav-link" href="/">Home
+								<span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="/student/list">Students</a>
+						</li>
+					</ul>
+					<!-- <form class="form-inline my-2 my-lg-0">
+						<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome, Guest</span>
+						<input class="form-control mr-sm-2" type="text"
+							placeholder="Search">
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+					</form> -->
+				</div>
+			</nav>
+		</header>
+
+	</body>
+
+	<div class="container">
+		<h2>Add new student</h2>
+		
+		<div>
+			<table class="table table-striped">
+				<tr>
+					<td>Student Number</td>
+					<td> <input type="text" th:field="*{textField}" /></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>First Name</td>
+					<td> <input type="text" th:field="*{textField}" /></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>Middle Name</td>
+					<td> <input type="text" th:field="*{textField}" /></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>Last Name</td>
+					<td> <input type="text" th:field="*{textField}" /></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>GPA</td>
+					<td> <input type="text" th:field="*{textField}" /></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>Enrollment Date</td>
+					<td> <input type="datetime-local" th:field="*{datetimeField}" /></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>Is International</td>
+					<td> <input type="checkbox" th:field="*{singleCheckboxField}" /></td>
+				</tr>
+			</table>
+		</div>
+		
+		<!-- <div>
+			<p>Student Number  : <input type="text" th:field="*{textField}" /></p>
+			<p>First Name      : <input type="text" th:field="*{textField}" /></p>
+			<p>Middle Name     : <input type="text" th:field="*{textField}" /></p>
+			<p>Last Name       : <input type="text" th:field="*{textField}" /></p>
+			<p>CGPA            : <input type="text" th:field="*{textField}" /></p>
+			<p>Enrollment Date : <input type="datetime-local" th:field="*{datetimeField}" /></p>
+			<p>Is international: <input type="checkbox" th:field="*{singleCheckboxField}" /></p>
+		</div>
+		<div>
+			<button class="btn btn-secondary my-2 my-sm-0" type="submit">Save</button>
+		</div> -->
+	</div>
+
+</html>
