@@ -7,6 +7,7 @@
 	rel="stylesheet"
 	integrity="sha384-LV/SIoc08vbV9CCeAwiz7RJZMI5YntsH8rGov0Y2nysmepqMWVvJqds6y0RaxIXT"
 	crossorigin="anonymous">
+	    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
 <title>eRegistrar - Students</title>
 </head>
 <body>
@@ -29,7 +30,7 @@
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
-					<!-- <span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome, Guest</span> -->
+				 	<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome, Guest</span> 
 					<input class="form-control mr-sm-2" type="text"
 						placeholder="Search">
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
@@ -42,7 +43,7 @@
 
 <div class="container">
 	<h2>Students in our Database</h2>
-	<a class="nav-link" href="/student/add/new">Add new student</a>
+	<a class="nav-link" href="/eregistrar/student/new">Add new student</a>
 <div>
 	<table class="table table-striped">
 			<thead>
@@ -60,7 +61,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="student, iter : ${students}">
+				<tr th:each="student, iter : ${student}">
 					<th scope="row" th:text="${iter.count}"></th>
 					<td th:text="${student.studentNumber}"></td>
 					<td th:text="${student.firstName}"></td>
@@ -70,13 +71,16 @@
 					<td th:text="${student.enrollmentDate}"></td>
 					<!-- <td th:text="${student.isInternational? 'Yes': 'No'}"></td> -->
 					<td><input type="checkbox" th:checked=${student.isInternational}/></td>
-					<td><button class="btn btn-secondary my-2 my-sm-0" type="submit" style="backgroud-color:red">Delete</button>
-						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button>
+					<td>
+						<a id="editlink"th:href="@{'/student/edit/' + ${student.studentId}}">Edit</a>&nbsp;
+						<a id="deletelink" th:href="@{'/student/delete/' + ${student.studentId}}">Delete</a>
+						<!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="backgroud-color:red">Delete</button>
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button> -->
 					</td>
 				</tr>
 
-				<tr th:if="${studentCount < 1}">
-					<td colspan="8" style="text-align:center;">No Students available now.</td>
+				<tr th:if="${student.size() < 1}">
+					<td colspan="9" style="text-align:center;">No Students available now.</td>
 				</tr>
 			</tbody>
 	</table>

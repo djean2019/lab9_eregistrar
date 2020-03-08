@@ -21,9 +21,30 @@ public class StudentServiceImpl implements StudentService{
 		this.studentRepository = studentRepository;
 	}
 
+//	@Override
+//	public  Iterable<Student> getAllStudents() {
+//		return studentRepository.findAll();
+//	}
+	
 	@Override
-	public List<Student> getStudents() {
+	public  List<Student> getAllStudents() {
 		return studentRepository.findAll();
 	}
 
+	@Override
+	public Student saveStudent(Student std) {
+		return studentRepository.save(std);
+	}
+
+	@Override
+	public void deleteStudentById(long id) {
+		studentRepository.deleteById(id);
+	}
+
+	@Override
+	public Student getStudentById(long studentId) {
+		return studentRepository.findById(studentId).orElse(null);
+	}
+
+	
 }
