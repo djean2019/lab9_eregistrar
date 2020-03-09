@@ -29,7 +29,7 @@
 						</li>
 					</ul>
 					<form class="form-inline my-2 my-lg-0">
-						<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome, Guest</span>
+						<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome Guest</span>
 						<input class="form-control mr-sm-2" type="text"
 							placeholder="Search">
 						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
@@ -43,7 +43,7 @@
             <span style="font-size: 2em; color: #32a5e7;">Add New Student Form</span>
         </div>
 
-        <form id="addStudentForm" method="post" action="/eregistrar/student/new" th:object="${student}">
+        <form id="addStudentForm" method="post" th:action="@{/student/new}" th:object="${student}">
             <fieldset>
                 <input type="hidden" name="studentId" th:value="${student.studentId}"/>
                
@@ -115,8 +115,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="isInternational">Is International</label>
-                            <input id="isInternational" name="isInternational" type="hidden" class="form-control">
-                            <input id="isInternational" name="isInternational" type="checkbox" class="form-control" onChange="getIsInternational(this)" th:checked="${student.isInternational}">
+                            <input id="isInternational" type="checkbox" class="form-control" th:field="${student.isInternational}" th:checked="${student.isInternational}">
                         </div>
                     </div>  
                 </div>
@@ -133,7 +132,7 @@
     <footer class="footer">
         <div class="container">
             <span class="text-muted">H. J. Darphe : : : CS425-SWE</span>
-            <span style="float:right;" class="text-muted">&copy; March 2020</span>
+            <span style="float:right;" class="text-muted">&copy; All rights reserved</span>
         </div>
     </footer>
 

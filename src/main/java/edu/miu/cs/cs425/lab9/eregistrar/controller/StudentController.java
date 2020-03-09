@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.miu.cs.cs425.lab9.eregistrar.controller.model.Search;
 import edu.miu.cs.cs425.lab9.eregistrar.controller.model.Student;
 import edu.miu.cs.cs425.lab9.eregistrar.controller.service.StudentService;
 
@@ -33,29 +34,31 @@ public class StudentController {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Student> students = studentService.getAllStudents();
 		modelAndView.addObject("student",students);
+		modelAndView.addObject("search", new Search());
 		modelAndView.setViewName("student/list");
 		return modelAndView;
 	}
 	
-	@GetMapping(value= {"eregistrar/student/new"})
+	@GetMapping(value= {"/student/new"})
 	public String addStudentsForm(Model model) {
 		model.addAttribute("student", new Student());
 		return "student/new";
 	}
 
-    @PostMapping(value = {"eregistrar/student/new"})
+    @PostMapping(value = {"/student/new"})
     public String addNewStudent(@Valid @ModelAttribute("student") Student student,
                                      BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("errors", bindingResult.getAllErrors());
+    	if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getFieldError().toString());
+    		model.addAttribute("errors", bindingResult.getAllErrors());
             return "student/new";
         }
         student = studentService.saveStudent(student);
         return "redirect:/student/list";
     }
 
-    @GetMapping(value = {"/student/edit/{studentId}"})
-    public String editStudent(@PathVariable long studentId, Model model) {
+    @GetMapping(value = {"/student/edit"})
+    public String editStudent(@RequestParam("studentId") long studentId, Model model) {
         Student student = studentService.getStudentById(studentId);
         if (student != null) {
             model.addAttribute("student", student);
@@ -65,7 +68,7 @@ public class StudentController {
     }
 
     @PostMapping(value = {"/student/edit"})
-    public String updateBook(@Valid @ModelAttribute("student") Student student,
+    public String editStudent(@Valid @ModelAttribute("student") Student student,
                                 BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
@@ -79,6 +82,15 @@ public class StudentController {
     public String deleteBook(@PathVariable long studentId, Model model) {
         studentService.deleteStudentById(studentId);
         return "redirect:/student/list";
+    }
+    
+    @PostMapping("/search")
+    public String search(@ModelAttribute Search search, Model model) {
+    	if(search.getSearch().isEmpty() || search.getSearch().isBlank())
+    		model.addAttribute("student", studentService.getAllStudents());
+    	else
+    		model.addAttribute("student", studentService.findStudentByStudentNumber(search.getSearch()));
+    	return "/student/list";
     }
 	
 }

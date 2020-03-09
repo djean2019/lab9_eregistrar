@@ -21,11 +21,6 @@ public class StudentServiceImpl implements StudentService{
 		this.studentRepository = studentRepository;
 	}
 
-//	@Override
-//	public  Iterable<Student> getAllStudents() {
-//		return studentRepository.findAll();
-//	}
-	
 	@Override
 	public  List<Student> getAllStudents() {
 		return studentRepository.findAll();
@@ -46,5 +41,9 @@ public class StudentServiceImpl implements StudentService{
 		return studentRepository.findById(studentId).orElse(null);
 	}
 
+	@Override
+	public List<Student> findStudentByStudentNumber(String search) {
+		return studentRepository.findStudentByStudentNumber(search);
+	}
 	
 }

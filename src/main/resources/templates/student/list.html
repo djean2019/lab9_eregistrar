@@ -29,10 +29,9 @@
 					<li class="nav-item"><a class="nav-link" href="/student/list">Students</a>
 					</li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
-				 	<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome, Guest</span> 
-					<input class="form-control mr-sm-2" type="text"
-						placeholder="Search">
+				<form class="form-inline my-2 my-lg-0" th:action="@{/search}" th:object="${search}" method="post">
+				 	<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome Guest</span> 
+					<input id="searchlink" class="form-control mr-sm-2" type="text" th:field="*{search}" placeholder="Search" />
 					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
@@ -43,7 +42,7 @@
 
 <div class="container">
 	<h2>Students in our Database</h2>
-	<a class="nav-link" href="/eregistrar/student/new">Add new student</a>
+	<a class="nav-link" href="/student/new">Add new student</a>
 <div>
 	<table class="table table-striped">
 			<thead>
@@ -72,7 +71,8 @@
 					<!-- <td th:text="${student.isInternational? 'Yes': 'No'}"></td> -->
 					<td><input type="checkbox" th:checked=${student.isInternational}/></td>
 					<td>
-						<a id="editlink"th:href="@{'/student/edit/' + ${student.studentId}}">Edit</a>&nbsp;
+						<!-- <a id="editlink" th:href="@{'/student/edit/' + ${student.studentId}}">Edit</a>&nbsp; -->
+						<a id="editlink" th:href="@{/student/edit/(studentId=${student.studentId})}">Edit</a>&nbsp;
 						<a id="deletelink" th:href="@{'/student/delete/' + ${student.studentId}}">Delete</a>
 						<!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="backgroud-color:red">Delete</button>
 						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit</button> -->

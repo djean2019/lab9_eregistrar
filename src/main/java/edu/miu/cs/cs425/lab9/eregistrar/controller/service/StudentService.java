@@ -10,5 +10,6 @@ public interface StudentService {
 	public abstract Student saveStudent(Student std);
 	public abstract void deleteStudentById(long id);
 	public abstract Student getStudentById(long studentId);
-
+//	public abstract Student getStudentByName(String name);
+	public abstract List<Student> findStudentByStudentNumber(String search);
 }

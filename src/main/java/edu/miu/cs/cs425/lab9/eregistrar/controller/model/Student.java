@@ -110,7 +110,7 @@ public class Student {
     public boolean getIsInternational() {
 		return isInternational;
 	}
-	public void setInternational(boolean isInternational) {
+	public void setIsInternational(boolean isInternational) {
 		this.isInternational = isInternational;
     }
 
