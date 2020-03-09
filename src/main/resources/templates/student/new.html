@@ -11,32 +11,7 @@
 		<title>eRegistrar - Students</title>
 	</head>
 	<body>
-	
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="/">eRegistrar</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarColor02" aria-controls="navbarColor02"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-	
-				<div class="collapse navbar-collapse" id="navbarColor02">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active"><a class="nav-link" href="/">Home
-								<span class="sr-only">(current)</span>
-						</a></li>
-						<li class="nav-item"><a class="nav-link" href="/student/list">Students</a>
-						</li>
-					</ul>
-					<form class="form-inline my-2 my-lg-0">
-						<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome Guest</span>
-						<input class="form-control mr-sm-2" type="text"
-							placeholder="Search">
-						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-					</form>
-				</div>
-			</nav>
-		
+			<div th:replace="fragments/header :: header"></div>	
 
     <div style="padding-top:1em;" class="container">
         <div style="margin-bottom: 1em;">
@@ -123,18 +98,11 @@
 
                 <div style="float:right;">
                     <a href="/student/list" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
-                    <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save Student</button>
+                    <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save</button>
                 </div>
             </fieldset>
         </form>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">H. J. Darphe : : : CS425-SWE</span>
-            <span style="float:right;" class="text-muted">&copy; All rights reserved</span>
-        </div>
-    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

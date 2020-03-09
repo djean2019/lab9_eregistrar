@@ -79,7 +79,7 @@ public class StudentController {
     }
 
     @GetMapping(value = {"/student/delete/{studentId}"})
-    public String deleteBook(@PathVariable long studentId, Model model) {
+    public String deleteStudent(@PathVariable long studentId, Model model) {
         studentService.deleteStudentById(studentId);
         return "redirect:/student/list";
     }

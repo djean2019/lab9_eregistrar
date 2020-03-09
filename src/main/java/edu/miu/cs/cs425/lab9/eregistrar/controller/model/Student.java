@@ -2,7 +2,6 @@ package edu.miu.cs.cs425.lab9.eregistrar.controller.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +12,6 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 @Entity
 @Table(name="students")
@@ -30,9 +28,9 @@ public class Student {
 	@NotEmpty(message="*Student last name is requiered")
 	private String lastName;
 	private double cgpa;
+	@NotEmpty(message="Valid date required")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate enrollmentDate;
-//	@Type(value = NumericBoolean.TYPE)
 	private boolean isInternational;
 	
 	public Student() {

@@ -9,41 +9,20 @@
 	crossorigin="anonymous">
 	    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
 <title>eRegistrar - Students</title>
-</head>
+
 <body>
 
-<header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="/">eRegistrar</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarColor02" aria-controls="navbarColor02"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarColor02">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="/">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="/student/list">Students</a>
-					</li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0" th:action="@{/search}" th:object="${search}" method="post">
-				 	<span style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome Guest</span> 
-					<input id="searchlink" class="form-control mr-sm-2" type="text" th:field="*{search}" placeholder="Search" />
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-				</form>
-			</div>
-		</nav>
-	</header>
-
-</body>
+<div th:replace="fragments/header :: header"></div>
 
 <div class="container">
 	<h2>Students in our Database</h2>
 	<a class="nav-link" href="/student/new">Add new student</a>
+		<form class="form-inline my-2 my-lg-0" th:action="@{/search}" th:object="${search}" method="post">
+				<input id="searchlink" class="form-control mr-sm-2" type="text" th:field="*{search}" placeholder="Search" />
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+		</form>
 <div>
+<h1></h1>
 	<table class="table table-striped">
 			<thead>
 				<tr>
@@ -69,7 +48,7 @@
 					<td th:text="${student.cgpa}"></td>
 					<td th:text="${student.enrollmentDate}"></td>
 					<!-- <td th:text="${student.isInternational? 'Yes': 'No'}"></td> -->
-					<td><input type="checkbox" th:checked=${student.isInternational}/></td>
+					<td><input type="checkbox" th:checked=${student.isInternational} disabled/></td>
 					<td>
 						<!-- <a id="editlink" th:href="@{'/student/edit/' + ${student.studentId}}">Edit</a>&nbsp; -->
 						<a id="editlink" th:href="@{/student/edit/(studentId=${student.studentId})}">Edit</a>&nbsp;
@@ -85,7 +64,7 @@
 			</tbody>
 	</table>
 </div>
-
 </div>
+</body>
 
 </html>
