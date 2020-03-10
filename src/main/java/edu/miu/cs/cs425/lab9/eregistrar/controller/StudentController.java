@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.miu.cs.cs425.lab9.eregistrar.controller.model.Search;
-import edu.miu.cs.cs425.lab9.eregistrar.controller.model.Student;
-import edu.miu.cs.cs425.lab9.eregistrar.controller.service.StudentService;
+import edu.miu.cs.cs425.lab9.eregistrar.model.Search;
+import edu.miu.cs.cs425.lab9.eregistrar.model.Student;
+import edu.miu.cs.cs425.lab9.eregistrar.service.StudentService;
 
 @Controller
 public class StudentController {

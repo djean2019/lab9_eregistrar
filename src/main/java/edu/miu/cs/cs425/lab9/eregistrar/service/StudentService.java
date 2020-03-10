@@ -1,8 +1,9 @@
-package edu.miu.cs.cs425.lab9.eregistrar.controller.service;
+package edu.miu.cs.cs425.lab9.eregistrar.service;
 
 import java.util.List;
 
-import edu.miu.cs.cs425.lab9.eregistrar.controller.model.Student;
+import edu.miu.cs.cs425.lab9.eregistrar.model.Student;
+
 
 public interface StudentService {
 	List<Student> getAllStudents();

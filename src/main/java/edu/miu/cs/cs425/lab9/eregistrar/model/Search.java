@@ -1,4 +1,4 @@
-package edu.miu.cs.cs425.lab9.eregistrar.controller.model;
+package edu.miu.cs.cs425.lab9.eregistrar.model;
 
 public class Search {
 	private String search;

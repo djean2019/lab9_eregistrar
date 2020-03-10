@@ -1,4 +1,4 @@
-package edu.miu.cs.cs425.lab9.eregistrar.controller.model;
+package edu.miu.cs.cs425.lab9.eregistrar.model;
 
 import java.time.LocalDate;
 
@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -28,7 +28,7 @@ public class Student {
 	@NotEmpty(message="*Student last name is requiered")
 	private String lastName;
 	private double cgpa;
-	@NotEmpty(message="Valid date required")
+	@NotNull(message="*Valid date required")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate enrollmentDate;
 	private boolean isInternational;
